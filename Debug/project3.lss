@@ -1056,7 +1056,7 @@ int main()
 				{
 					KpValue = KP_GetPressed();
  604:	0e 94 6e 00 	call	0xdc	; 0xdc <KP_GetPressed>
- 608:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 608:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <KpValue>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
@@ -1066,7 +1066,7 @@ int main()
  60c:	00 00       	nop
 					_delay_us(1);
 				} while (KpValue == 255);
- 60e:	00 91 60 00 	lds	r16, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 60e:	00 91 60 00 	lds	r16, 0x0060	; 0x800060 <KpValue>
  612:	0f 3f       	cpi	r16, 0xFF	; 255
  614:	b9 f3       	breq	.-18     	; 0x604 <main+0x7c>
 				if (KpValue == '+' || KpValue == '-' || KpValue == '/' || KpValue == 'x')
@@ -1130,11 +1130,11 @@ int main()
 				{
 					KpValue = KP_GetPressed();
  65a:	0e 94 6e 00 	call	0xdc	; 0xdc <KP_GetPressed>
- 65e:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 65e:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <KpValue>
  662:	00 00       	nop
 					_delay_us(1);
 				} while (KpValue == 255);
- 664:	60 91 60 00 	lds	r22, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 664:	60 91 60 00 	lds	r22, 0x0060	; 0x800060 <KpValue>
  668:	6f 3f       	cpi	r22, 0xFF	; 255
  66a:	b9 f3       	breq	.-18     	; 0x65a <main+0xd2>
 				if (KpValue == '=')
